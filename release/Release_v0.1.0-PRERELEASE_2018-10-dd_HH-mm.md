@@ -15,6 +15,7 @@ TODO
 
 
 #### Feature
+#6 [ci] Connect the GitHub project with Travis CI.
 #4 [engine] Create new class ApplicationPageManager with default pages.
 #3 [app] Create default JavaFX application.
 
