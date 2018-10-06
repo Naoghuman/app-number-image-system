@@ -31,6 +31,7 @@ TODO
 
 
 #### Additional
+#2 [doc] Create concept for a new ApplicationPageManager class.
 #1 [doc] Create basic files for the app-number-image-system concept.
 
 
