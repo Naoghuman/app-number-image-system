@@ -16,6 +16,7 @@ TODO
 
 #### Feature
 #4 [engine] Create new class ApplicationPageManager with default pages.
+#3 [app] Create default JavaFX application.
 
 
 

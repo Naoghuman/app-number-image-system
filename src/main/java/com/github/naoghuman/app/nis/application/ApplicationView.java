@@ -14,17 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.number.image.system.application;
+package com.github.naoghuman.app.nis.application;
+
+import com.airhacks.afterburner.views.FXMLView;
 
 /**
  *
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class ApplicationStart {
+public class ApplicationView extends FXMLView {
     
-    public static void main(String[] args) {
-        
+    public ApplicationPresenter getRealPresenter() {
+        return (ApplicationPresenter) super.getPresenter();
     }
     
 }
