@@ -31,6 +31,7 @@ TODO
 
 
 #### Additional
+#1 [doc] Create basic files for the app-number-image-system concept.
 
 
 
