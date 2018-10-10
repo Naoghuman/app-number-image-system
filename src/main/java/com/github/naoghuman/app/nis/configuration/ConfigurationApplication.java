@@ -20,20 +20,72 @@ import javafx.util.Duration;
 
 /**
  *
+ * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
 public interface ConfigurationApplication {
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public static final Duration DURATION__125 = Duration.millis(125.0d);
     
-    public static final String KEY__APPLICATION__RESOURCE_BUNDLE = "/com/github/naoghuman/app/nis/application/application.properties"; // NOI18N
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String RESOURCE_BUNDLE__APPLICATION = "/com/github/naoghuman/app/nis/application/application.properties"; // NOI18N
     
-    public static final String KEY__APPLICATION__BORDER_SIGN     = "key.application.border.sign"; // NOI18N
-    public static final String KEY__APPLICATION__BUILD_DATETIME  = "key.application.build.datetime"; // NOI18N
-    public static final String KEY__APPLICATION__DATABASE        = "key.application.database"; // NOI18N
-    public static final String KEY__APPLICATION__MESSAGE_START   = "key.application.message.start"; // NOI18N
-    public static final String KEY__APPLICATION__MESSAGE_STOP    = "key.application.message.stop"; // NOI18N
-    public static final String KEY__APPLICATION__TITLE           = "key.application.title"; // NOI18N
-    public static final String KEY__APPLICATION__VERSION         = "key.application.version"; // NOI18N
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__BORDER_SIGN = "application.border.sign"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__BUILD_DATETIME = "application.build.datetime"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__DATABASE = "application.database"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__MESSAGE_START = "application.message.start"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__MESSAGE_STOP = "application.message.stop"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__TITLE = "application.title"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String APPLICATION__VERSION = "application.version"; // NOI18N
     
 }

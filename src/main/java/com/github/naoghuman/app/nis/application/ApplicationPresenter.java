@@ -17,11 +17,18 @@
 package com.github.naoghuman.app.nis.application;
 
 import com.github.naoghuman.app.nis.configuration.ConfigurationApplication;
+import com.github.naoghuman.app.nis.configuration.ConfigurationPage;
+import com.github.naoghuman.app.nis.page.PageManager;
 import com.github.naoghuman.lib.action.core.Registerable;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
+import com.github.naoghuman.lib.validation.core.validator.PreConditionValidator;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -29,20 +36,35 @@ import javafx.fxml.Initializable;
  * @author Naoghuman
  */
 public class ApplicationPresenter implements 
-        ConfigurationApplication, Initializable, Registerable
+        ConfigurationApplication, ConfigurationPage, Initializable,
+        Registerable
 {
+    @FXML private ScrollPane spPageArea;
+    @FXML private Text       tPageName;
+    @FXML private VBox       vbPageButtons;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LoggerFacade.getDefault().info(this.getClass(), "ApplicationPresenter.initialize(URL, ResourceBundle)"); // NOI18N
         
+        this.initializeHomePage();
+    }
+    
+    private void initializeHomePage() {
+        LoggerFacade.getDefault().info(this.getClass(), "ApplicationPresenter.initializeHomePage()"); // NOI18N
+        
+        PreConditionValidator.getDefault().requireNonNull(tPageName);
+        PreConditionValidator.getDefault().requireNonNull(spPageArea);
+        PreConditionValidator.getDefault().requireNonNull(vbPageButtons);
+        
+        PageManager.getDefault().register(tPageName, spPageArea, vbPageButtons);
+        PageManager.getDefault().switchTo(PAGE__HOME);
     }
     
     @Override
     public void register() {
         LoggerFacade.getDefault().info(this.getClass(), "ApplicationPresenter.register()"); // NOI18N
 
-        
     }
     
 }

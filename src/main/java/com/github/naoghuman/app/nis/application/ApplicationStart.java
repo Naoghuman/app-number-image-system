@@ -18,6 +18,7 @@ package com.github.naoghuman.app.nis.application;
 
 import com.airhacks.afterburner.injection.Injector;
 import com.github.naoghuman.app.nis.configuration.ConfigurationApplication;
+import com.github.naoghuman.app.nis.configuration.ConfigurationPage;
 import com.github.naoghuman.lib.database.core.DatabaseFacade;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import com.github.naoghuman.lib.preferences.core.PreferencesFacade;
@@ -36,8 +37,9 @@ import javafx.stage.WindowEvent;
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class ApplicationStart extends Application implements ConfigurationApplication {
-    
+public class ApplicationStart extends Application implements 
+        ConfigurationApplication, ConfigurationPage
+{
     public static void main(String[] args) {
         launch(args);
     }
@@ -46,27 +48,29 @@ public class ApplicationStart extends Application implements ConfigurationApplic
     public void init() throws Exception {
         super.init();
         
-        PropertiesFacade.getDefault().register(KEY__APPLICATION__RESOURCE_BUNDLE);
+        PropertiesFacade.getDefault().register(RESOURCE_BUNDLE__APPLICATION);
+        PropertiesFacade.getDefault().register(RESOURCE_BUNDLE__PAGE);
         
-        final char borderSign = this.getProperty(KEY__APPLICATION__BORDER_SIGN).charAt(0);
-        final String message  = this.getProperty(KEY__APPLICATION__MESSAGE_START);
-        final String title    = this.getProperty(KEY__APPLICATION__TITLE)
-                              + this.getProperty(KEY__APPLICATION__VERSION);
+        final char borderSign = this.getProperty(APPLICATION__BORDER_SIGN).charAt(0);
+        final String message  = this.getProperty(APPLICATION__MESSAGE_START);
+        final String title    = this.getProperty(APPLICATION__TITLE)
+                              + this.getProperty(APPLICATION__VERSION);
         LoggerFacade.getDefault().message(borderSign, 80, String.format(message, title));
         
         final Boolean dropPreferencesFileAtStart = Boolean.FALSE;
         PreferencesFacade.getDefault().init(dropPreferencesFileAtStart);
         
-        DatabaseFacade.getDefault().register(this.getProperty(KEY__APPLICATION__DATABASE));
+        DatabaseFacade.getDefault().register(this.getProperty(APPLICATION__DATABASE));
     }
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         final ApplicationView view = new ApplicationView();
         
-        final Scene scene = new Scene(view.getView(), 1280, 720);
-        primaryStage.setTitle(this.getProperty(KEY__APPLICATION__TITLE)
-                        + this.getProperty(KEY__APPLICATION__VERSION));
+        final Scene scene = new Scene(view.getView(), 400, 250);
+        primaryStage.setTitle(
+                this.getProperty(APPLICATION__TITLE)
+                        + this.getProperty(APPLICATION__VERSION));
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest((WindowEvent we) -> {
            we.consume();
@@ -83,7 +87,7 @@ public class ApplicationStart extends Application implements ConfigurationApplic
     }
     
     private String getProperty(String propertyKey) {
-        return PropertiesFacade.getDefault().getProperty(KEY__APPLICATION__RESOURCE_BUNDLE, propertyKey);
+        return PropertiesFacade.getDefault().getProperty(RESOURCE_BUNDLE__APPLICATION, propertyKey);
     }
     
     private void onCloseRequest() {
@@ -94,9 +98,9 @@ public class ApplicationStart extends Application implements ConfigurationApplic
         DatabaseFacade.getDefault().shutdown();
         
         // Message
-        final char borderSign = this.getProperty(KEY__APPLICATION__BORDER_SIGN).charAt(0);
-        final String message = this.getProperty(KEY__APPLICATION__MESSAGE_STOP);
-        final String title = this.getProperty(KEY__APPLICATION__TITLE) + this.getProperty(KEY__APPLICATION__VERSION);
+        final char borderSign = this.getProperty(APPLICATION__BORDER_SIGN).charAt(0);
+        final String message = this.getProperty(APPLICATION__MESSAGE_STOP);
+        final String title = this.getProperty(APPLICATION__TITLE) + this.getProperty(APPLICATION__VERSION);
         LoggerFacade.getDefault().message(borderSign, 80, String.format(message, title));
         
         // Timer

@@ -15,9 +15,10 @@ TODO
 
 
 #### Feature
+#8 [engine] Create basic page layout.
 #7 [app] Add badges from img.shield.io to the ReadMe.md.
 #6 [ci] Connect the GitHub project with Travis CI.
-#4 [engine] Create new class ApplicationPageManager with default pages.
+#4 [engine] Create new class ApplicationPageManager for managing pages.
 #3 [app] Create default JavaFX application.
 
 
