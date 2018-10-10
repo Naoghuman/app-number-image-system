@@ -17,13 +17,21 @@
 package com.github.naoghuman.app.nis.page.statistic;
 
 import com.airhacks.afterburner.views.FXMLView;
+import com.github.naoghuman.app.nis.page.Page;
+import java.util.Optional;
 
 /**
  *
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class StatisticView extends FXMLView {
+public final class StatisticView extends FXMLView {
+    
+    private static final Optional<StatisticView> INSTANCE = Optional.of(new StatisticView());
+    
+    private StatisticView() {
+        
+    }
     
     /**
      * 
@@ -31,8 +39,7 @@ public class StatisticView extends FXMLView {
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
-    public StatisticPresenter getRealPresenter() {
-        return (StatisticPresenter) super.getPresenter();
+    public static Page getPage() {
+        return (Page) INSTANCE.get().getPresenter();
     }
-    
 }

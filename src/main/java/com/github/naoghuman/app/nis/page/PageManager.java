@@ -65,17 +65,10 @@ public final class PageManager {
     private void initialize() {
         LoggerFacade.getDefault().info(this.getClass(), "PageManager.initialize()"); // NOI18N
         
-        final AboutView aboutView = new AboutView();
-        pages.add((Page)aboutView.getRealPresenter());
-        
-        final HelpView helpView = new HelpView();
-        pages.add((Page)helpView.getRealPresenter());
-        
-        final HomeView homeView = new HomeView();
-        pages.add((Page)homeView.getRealPresenter());
-        
-        final StatisticView statisticView = new StatisticView();
-        pages.add((Page)statisticView.getRealPresenter());
+        pages.add(AboutView.getPage());
+        pages.add(HelpView.getPage());
+        pages.add(HomeView.getPage());
+        pages.add(StatisticView.getPage());
     }
     
     /**

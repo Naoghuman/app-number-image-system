@@ -17,13 +17,21 @@
 package com.github.naoghuman.app.nis.page.home;
 
 import com.airhacks.afterburner.views.FXMLView;
+import com.github.naoghuman.app.nis.page.Page;
+import java.util.Optional;
 
 /**
  *
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class HomeView extends FXMLView {
+public final class HomeView extends FXMLView {
+    
+    private static final Optional<HomeView> INSTANCE = Optional.of(new HomeView());
+    
+    private HomeView() {
+        
+    }
     
     /**
      * 
@@ -31,8 +39,8 @@ public class HomeView extends FXMLView {
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
-    public HomePresenter getRealPresenter() {
-        return (HomePresenter) super.getPresenter();
+    public static Page getPage() {
+        return (Page) INSTANCE.get().getPresenter();
     }
     
 }

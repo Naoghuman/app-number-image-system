@@ -17,13 +17,21 @@
 package com.github.naoghuman.app.nis.page.about;
 
 import com.airhacks.afterburner.views.FXMLView;
+import com.github.naoghuman.app.nis.page.Page;
+import java.util.Optional;
 
 /**
  *
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class AboutView extends FXMLView {
+public final class AboutView extends FXMLView {
+    
+    private static final Optional<AboutView> INSTANCE = Optional.of(new AboutView());
+    
+    private AboutView() {
+        
+    }
     
     /**
      * 
@@ -31,8 +39,8 @@ public class AboutView extends FXMLView {
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
-    public AboutPresenter getRealPresenter() {
-        return (AboutPresenter) super.getPresenter();
+    public static Page getPage() {
+        return (Page) INSTANCE.get().getPresenter();
     }
     
 }
