@@ -17,9 +17,12 @@
 package com.github.naoghuman.app.nis.page;
 
 import com.github.naoghuman.app.nis.page.about.AboutView;
+import com.github.naoghuman.app.nis.page.exercise.exerciseinfinite.ExerciseInfiniteView;
 import com.github.naoghuman.app.nis.page.help.HelpView;
+import com.github.naoghuman.app.nis.page.help.helpexerciseinfinite.HelpExerciseInfiniteView;
 import com.github.naoghuman.app.nis.page.home.HomeView;
 import com.github.naoghuman.app.nis.page.statistic.StatisticView;
+import com.github.naoghuman.app.nis.page.statistic.statisticexerciseinfinite.StatisticExerciseInfiniteView;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import com.github.naoghuman.lib.validation.core.validator.PreConditionValidator;
 import java.util.Optional;
@@ -65,10 +68,16 @@ public final class PageManager {
     private void initialize() {
         LoggerFacade.getDefault().info(this.getClass(), "PageManager.initialize()"); // NOI18N
         
+        // Mainpages
         pages.add(AboutView.getPage());
         pages.add(HelpView.getPage());
         pages.add(HomeView.getPage());
         pages.add(StatisticView.getPage());
+        
+        // Subpages
+        pages.add(ExerciseInfiniteView.getPage());
+        pages.add(HelpExerciseInfiniteView.getPage());
+        pages.add(StatisticExerciseInfiniteView.getPage());
     }
     
     /**
@@ -138,6 +147,8 @@ public final class PageManager {
                     
                     vbPageButtons.getChildren().clear();
                     vbPageButtons.getChildren().addAll(PageButtonFactory.create(p.getButtons()));
+                
+                    previousPage = Optional.of(p);
                 });
         });
         

@@ -14,53 +14,58 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.nis.page.help;
+package com.github.naoghuman.app.nis.page.exercise.exerciseinfinite;
 
 import com.github.naoghuman.app.nis.configuration.ConfigurationPage;
+import com.github.naoghuman.app.nis.page.Page;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
-import com.github.naoghuman.app.nis.page.Page;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
  * @since  0.1.0-PRERELEASE
  * @author Naoghuman
  */
-public class HelpPresenter implements 
+public class ExerciseInfinitePresenter implements
         ConfigurationPage, Initializable, Page
 {
     private final ObservableList<String> buttons = FXCollections.observableArrayList();
-     
-    @FXML private VBox vbPageHelp;
+
+    @FXML private VBox vbPageAbout;// XXX
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        LoggerFacade.getDefault().info(this.getClass(), "HelpPresenter.initialize(URL, ResourceBundle)"); // NOI18N
+        LoggerFacade.getDefault().info(this.getClass(), "ExerciseInfinitePresenter.initialize(URL, ResourceBundle)"); // NOI18N
     
         this.initializeMenu();
     }
     
     private void initializeMenu() {
-        LoggerFacade.getDefault().info(this.getClass(), "HelpPresenter.initializeMenu()"); // NOI18N
+        LoggerFacade.getDefault().info(this.getClass(), "ExerciseInfinitePresenter.initializeMenu()"); // NOI18N
     
         buttons.add(PAGE__HOME);
+        buttons.add(PAGE__HELP);
+        buttons.add(PAGE__HELP_EXERCISE_INFINITE);
+        buttons.add(PAGE__STATISTIC);
+        buttons.add(PAGE__STATISTIC_EXERCISE_INFINITE);
+        buttons.add(PAGE__ABOUT);
     }
 
     @Override
     public String getKey() {
-        return PAGE__HELP;
+        return PAGE__EXERCISE_INFINITE;
     }
 
     @Override
     public Node getView() {
-        return vbPageHelp;
+        return vbPageAbout;
     }
 
     @Override

@@ -44,11 +44,11 @@ public class StatisticPresenter implements
     public void initialize(URL location, ResourceBundle resources) {
         LoggerFacade.getDefault().info(this.getClass(), "StatisticPresenter.initialize(URL, ResourceBundle)"); // NOI18N
     
-        this.initializeButtons();
+        this.initializeMenu();
     }
     
-    private void initializeButtons() {
-        LoggerFacade.getDefault().info(this.getClass(), "StatisticPresenter.initializeButtons()"); // NOI18N
+    private void initializeMenu() {
+        LoggerFacade.getDefault().info(this.getClass(), "StatisticPresenter.initializeMenu()"); // NOI18N
     
         buttons.add(PAGE__HOME);
         buttons.add(PAGE__HELP);

@@ -32,23 +32,24 @@ import javafx.scene.control.Button;
  */
 public final class PageButtonFactory {
     
-    private static final ObservableMap<String, Button> BUTTON_CACHE = FXCollections.observableHashMap();
+    private static final ObservableMap<String, Button> BUTTONS    = FXCollections.observableHashMap();
+    private static final ObservableMap<String, Button> THUMBNAILS = FXCollections.observableHashMap();
     
     /**
      * 
-     * @param buttons
+     * @param pages
      * @return 
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
-    public static ObservableList<Button> create(final ObservableList<String> buttons) {
+    public static ObservableList<Button> create(final ObservableList<String> pages) {
         LoggerFacade.getDefault().debug(PageButtonFactory.class, "PageButtonFactory.create(ObservableList<String>)"); // NOI18N
         
-        PreConditionValidator.getDefault().requireNonNull(buttons);
+        PreConditionValidator.getDefault().requireNonNull(pages);
         
         final ObservableList<Button> btns = FXCollections.observableArrayList();
-        buttons.forEach((button) -> {
-            btns.add(PageButtonFactory.create(button));
+        pages.forEach((page) -> {
+            btns.add(PageButtonFactory.create(page));
         });
         
         return btns;
@@ -56,29 +57,57 @@ public final class PageButtonFactory {
     
     /**
      * 
-     * @param button
+     * @param page
      * @return 
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
-    public static Button create(final String button) {
-        PreConditionValidator.getDefault().requireNonNullAndNotEmpty(button);
+    public static Button create(final String page) {
+        PreConditionValidator.getDefault().requireNonNullAndNotEmpty(page);
         
-        if (!BUTTON_CACHE.containsKey(button)) {
+        if (!BUTTONS.containsKey(page)) {
             LoggerFacade.getDefault().debug(PageButtonFactory.class, "PageButtonFactory.create(String)"); // NOI18N
         
             final Button btn = new Button();
-            btn.setText(PropertiesFacade.getDefault().getProperty(RESOURCE_BUNDLE__PAGE, button));
+            btn.setText(PropertiesFacade.getDefault().getProperty(RESOURCE_BUNDLE__PAGE, page));
             btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
             btn.setPrefWidth(82.0d);
             btn.setOnAction((event) -> {
-                PageManager.getDefault().switchTo(button);
+                PageManager.getDefault().switchTo(page);
             });
             
-            BUTTON_CACHE.put(button, btn);
+            BUTTONS.put(page, btn);
         }
         
-        return BUTTON_CACHE.get(button);
+        return BUTTONS.get(page);
+    }
+    
+    /**
+     * 
+     * @param page
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static Button thumbnail(final String page) {
+        PreConditionValidator.getDefault().requireNonNullAndNotEmpty(page);
+        
+        if (!THUMBNAILS.containsKey(page)) {
+            LoggerFacade.getDefault().debug(PageButtonFactory.class, "PageButtonFactory.thumbnail(String)"); // NOI18N
+        
+            final Button btn = new Button();
+            btn.setText(PropertiesFacade.getDefault().getProperty(RESOURCE_BUNDLE__PAGE, page));
+            btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+            btn.setPrefWidth(128.0d);
+            btn.setPrefHeight(96.0d);
+            btn.setOnAction((event) -> {
+                PageManager.getDefault().switchTo(page);
+            });
+            
+            THUMBNAILS.put(page, btn);
+        }
+        
+        return THUMBNAILS.get(page);
     }
     
 }

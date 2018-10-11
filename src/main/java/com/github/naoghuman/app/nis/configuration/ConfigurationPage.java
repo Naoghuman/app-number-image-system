@@ -42,7 +42,21 @@ public interface ConfigurationPage {
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
      */
+    public static final String PAGE__EXERCISE_INFINITE = "page.exercise.infinite"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public static final String PAGE__HELP = "page.help"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String PAGE__HELP_EXERCISE_INFINITE = "page.help.exercise.infinite"; // NOI18N
     
     /**
      * 
@@ -57,5 +71,12 @@ public interface ConfigurationPage {
      * @author Naoghuman
      */
     public static final String PAGE__STATISTIC = "page.statistic"; // NOI18N
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final String PAGE__STATISTIC_EXERCISE_INFINITE = "page.statistic.exercise.infinite"; // NOI18N
     
 }

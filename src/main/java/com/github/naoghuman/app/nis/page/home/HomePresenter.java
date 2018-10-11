@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
 import com.github.naoghuman.app.nis.page.Page;
+import com.github.naoghuman.app.nis.page.PageButtonFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -44,11 +45,18 @@ public class HomePresenter implements
     public void initialize(URL location, ResourceBundle resources) {
         LoggerFacade.getDefault().info(this.getClass(), "HomePresenter.initialize(URL, ResourceBundle)"); // NOI18N
     
-        this.initializeButtons();
+        this.initializeExercises();
+        this.initializeMenu();
     }
     
-    private void initializeButtons() {
-        LoggerFacade.getDefault().info(this.getClass(), "HomePresenter.initializeButtons()"); // NOI18N
+    private void initializeExercises() {
+        LoggerFacade.getDefault().info(this.getClass(), "HomePresenter.initializeExercises()"); // NOI18N
+    
+        fpPageHome.getChildren().add(PageButtonFactory.thumbnail(PAGE__EXERCISE_INFINITE));
+    }
+    
+    private void initializeMenu() {
+        LoggerFacade.getDefault().info(this.getClass(), "HomePresenter.initializeMenu()"); // NOI18N
     
         buttons.add(PAGE__HELP);
         buttons.add(PAGE__STATISTIC);
