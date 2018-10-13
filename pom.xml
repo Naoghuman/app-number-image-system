@@ -8,7 +8,9 @@
     <packaging>jar</packaging>
     <name>App-Number-Image-System</name>
     
-    <description>TODO</description>
+    <description>`App-Number-Image-System` is a little app that let you train the `Number-Image System` 
+which is a basic memory training method.  
+App-Number-Image-System, written in [NetBeans IDE], is a [JavaFX] &amp; [Maven] application.</description>
     
     <developers>
         <developer>

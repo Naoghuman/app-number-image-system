@@ -1,6 +1,9 @@
 Welcome to `App-Number-Image-System` with the new release `vX.Y.Z`.
 
-TODO
+`App-Number-Image-System` is a little app that let you train the `Number-Image System` 
+which is a basic memory training method.  
+App-Number-Image-System, written in [NetBeans IDE], is a [JavaFX] &amp; [Maven] 
+application.
 
 
 

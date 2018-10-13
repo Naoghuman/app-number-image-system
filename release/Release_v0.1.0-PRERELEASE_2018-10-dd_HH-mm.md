@@ -1,6 +1,10 @@
 Welcome to `App-Number-Image-System` with the new release `v0.1.0-PRERELEASE`.
 
-TODO
+`App-Number-Image-System` is a little app that let you train the `Number-Image System` 
+which is a basic memory training method.  
+App-Number-Image-System, written in [NetBeans IDE], is a [JavaFX] &amp; [Maven] 
+application.
+
 
 
 
@@ -15,6 +19,7 @@ TODO
 
 
 #### Feature
+#11 [doc] Create the application description in GitHub, ReadMe and project.
 #8 [engine] Create basic page layout.
 #7 [app] Add badges from img.shield.io to the ReadMe.md.
 #6 [ci] Connect the GitHub project with Travis CI.
