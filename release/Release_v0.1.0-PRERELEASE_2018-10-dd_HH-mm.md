@@ -1,16 +1,15 @@
 Welcome to `App-Number-Image-System` with the new release `v0.1.0-PRERELEASE`.
 
 `App-Number-Image-System` is a little app that let you train the `Number-Image System` 
-which is a basic memory training method.  
-App-Number-Image-System, written in [NetBeans IDE], is a [JavaFX] &amp; [Maven] 
+which is a basic memory training method. App-Number-Image-System, written in [NetBeans IDE], is a [JavaFX] &amp; [Maven] 
 application.
 
 
 
 
 #### Summary
-* ...
-* ...
+* Basic application layout.
+* Basic page layout.
 
 
 
